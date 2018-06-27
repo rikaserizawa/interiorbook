@@ -54,5 +54,8 @@ color: #ffffff;
   background-color: #a6937c;
 }
 .navbar-default .nav li a {
-color: #ffffff;
+  color: #ffffff;
+}
+.navbar-default .navbar-text{
+  color: #ffffff;
 }
