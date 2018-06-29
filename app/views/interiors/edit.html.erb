@@ -1,0 +1,17 @@
+<h1>id: <%= @interior.id %>のインテリア編集ページ</h1>
+
+<%= form_for(@interior) do |f| %>
+
+  
+<%= f.label :title, 'タイトル' %>
+
+  
+<%= f.text_field :title %>
+
+
+  
+<%= f.submit '修正' %>
+
+<% end %>
+
+<li><%= link_to '詳細画面へ', interior_path(@interior) %></li>

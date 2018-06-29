@@ -1,0 +1,11 @@
+<% if interior.faving?(current_user) %>
+    <%= form_for(interior.scraps.find_by(user_id: current_user.id), html: { method: :delete }) do |f| %>
+      <%= hidden_field_tag :interior_id, interior.id %>
+      <%= f.submit 'Unscrap', class: 'btn btn-success btn-xs' %>
+    <% end %>
+<% else %>
+    <%= form_for(interior.scraps.build) do |f| %>
+      <%= hidden_field_tag :interior_id, interior.id %>
+      <%= f.submit 'Scrap', class: 'btn btn-success btn-xs' %>
+    <% end %>
+<% end %>

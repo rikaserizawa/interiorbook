@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show]
   
-  def show
+  def show #mybookのページ
     @user = User.find(params[:id])
+    #@user = current_user
+    @interior = current_user.interiors.build  # form_for 用
+    @interiors = current_user.interiors.order('created_at DESC').page(params[:page])
   end
   
   def new
@@ -21,9 +24,32 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      flash[:success] = 'Userプロフィールは正常に更新されました'
+      redirect_to @user
+    else
+      flash.now[:danger] = 'Userプロフィールは更新されませんでした'
+      render :edit
+    end
+  end
+  
+  #お気に入り
+  def scraps
+    @user = User.find(params[:id])
+    @scraps = @user.scraps.page(params[:page])
+    counts(@user)
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :profile)
   end
 end

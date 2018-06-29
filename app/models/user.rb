@@ -4,6 +4,13 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
-  has_secure_password
+  
   #imageとprofileは空でもOK
+  has_secure_password
+  #user写真
+  mount_uploader :image, ImageUploader
+  
+  has_many :interiors
+  # お気に入り
+  has_many :scraps, dependent: :destroy
 end

@@ -1,0 +1,30 @@
+<ul class="media-list">
+  <% @scraps.each do |scrap| %>
+  <% scrap = Interior.find(scrap.interior_id) %>
+  <li class="media">
+    <div class="media-left">
+      <img class="media-object img-rounded" src="
+      <%= gravatar_url(@user, { size: 50 }) %>
+      " alt="NoImage">
+    </div>
+    <div class="media-body">
+      <div><%= link_to interior.user.name, user_path(interior.user) %></div>
+      <div>
+        <p><%= interior.title %></p>
+          <%= image_tag(interior.photo_url) if interior.photo.present? %>
+        <div>
+          <%= link_to '詳細画面へ', interior_path(interior) %>
+        </div>
+      </div>
+      <div>
+        <%= render 'scraps/scrap_button', interior: interior %>
+      </div>
+        <div>
+        <% if current_user == interior.user %>
+        <%= link_to "Delete", interior, method: :delete, data: { confirm:"削除してよろしいですか？" }, class: 'btn btn-danger btn-xs' %>
+        <% end %>
+        </div>
+    </div>
+  </li>
+<% end %>
+</ul>

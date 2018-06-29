@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180626095024) do
+ActiveRecord::Schema.define(version: 20180628040242) do
+
+  create_table "interiors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_interiors_on_user_id", using: :btree
+  end
+
+  create_table "scraps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "interior_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["interior_id"], name: "index_scraps_on_interior_id", using: :btree
+    t.index ["user_id", "interior_id"], name: "index_scraps_on_user_id_and_interior_id", unique: true, using: :btree
+    t.index ["user_id"], name: "index_scraps_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -22,4 +41,7 @@ ActiveRecord::Schema.define(version: 20180626095024) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "interiors", "users"
+  add_foreign_key "scraps", "interiors"
+  add_foreign_key "scraps", "users"
 end
