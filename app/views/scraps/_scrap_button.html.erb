@@ -1,11 +1,20 @@
 <% if interior.faving?(current_user) %>
+    <button type="button" class="btn btn-default" aria-label="Left Align">
+    <span class="glyphicon glyphicon-paperclip" aria-hidden="true">
     <%= form_for(interior.scraps.find_by(user_id: current_user.id), html: { method: :delete }) do |f| %>
       <%= hidden_field_tag :interior_id, interior.id %>
-      <%= f.submit 'Unscrap', class: 'btn btn-success btn-xs' %>
+        <%= f.submit 'Scrapから外す'%>
+    </span>
+    </button>
     <% end %>
 <% else %>
+    <button type="button" class="btn btn-default" aria-label="Left Align">
+    <span class="glyphicon glyphicon-paperclip" aria-hidden="true">
     <%= form_for(interior.scraps.build) do |f| %>
       <%= hidden_field_tag :interior_id, interior.id %>
-      <%= f.submit 'Scrap', class: 'btn btn-success btn-xs' %>
+      <%= f.submit 'Scrapする' %>
+    </span>
+    </button>
     <% end %>
 <% end %>
+

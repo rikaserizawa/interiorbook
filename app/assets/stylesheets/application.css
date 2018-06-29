@@ -10,8 +10,8 @@ footer {
   margin-top: 50px;
   background-color: #a6937c;
 }
-.text-center {
-color: #ffffff;
+.text-center .rogo {
+color: #fff;
 }
 
 /* cover */
@@ -54,8 +54,8 @@ color: #ffffff;
   background-color: #a6937c;
 }
 .navbar-default .nav li a {
-  color: #ffffff;
+  color: #fff;
 }
 .navbar-default .navbar-text{
-  color: #ffffff;
+  color: #fff;
 }

@@ -1,17 +1,32 @@
-<h1>id: <%= @interior.id %>のインテリア編集ページ</h1>
+<div class="row">
+  <div class="col-xs-offset-3 col-xs-6">
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <%= @interior.title %>の編集ページ</h1>
+      </div>
 
-<%= form_for(@interior) do |f| %>
-
+      <%= form_for(@interior) do |f| %>
   
-<%= f.label :title, 'タイトル' %>
+      <div class="form-group">
+        <%= f.label :title, 'タイトル' %>
+        <%= f.text_field :title %>
+      </div>
+      
+      <!--写真は修正できない、キーワードが追加になる。-->
+      
+      <%= f.submit '修正' %>
+      <% end %>
+    
+      <div>
+        <% if current_user == @user %>
+        <%= link_to "削除", @interior, method: :delete, data: { confirm: "Interiorを削除しますか?" }, class: 'btn btn-danger btn-sm  btn-block' %>
+        <% end %>
+      </div>
+    </div>
+<%= link_to '詳細画面へ戻る', interior_path(@interior) %>
+  </div>
+</div>
+    
 
-  
-<%= f.text_field :title %>
 
 
-  
-<%= f.submit '修正' %>
-
-<% end %>
-
-<li><%= link_to '詳細画面へ', interior_path(@interior) %></li>

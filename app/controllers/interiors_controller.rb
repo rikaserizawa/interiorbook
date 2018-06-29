@@ -47,7 +47,7 @@ class InteriorsController < ApplicationController
   private
 
   def interior_params
-    params.require(:interior).permit(:title)
+    params.require(:interior).permit(:title, :photo)
   end
   
   def correct_user

@@ -1,12 +1,21 @@
-<h1>id: <%= @interior.id %>のインテリア詳細ページ</h1>
+<div class="row">
+  <div class="col-xs-offset-3 col-xs-6">
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <%= @interior.title %>の詳細ページ
+      </div>
 
-<p>
-<%= @interior.title %>
-</p>
-<%= render 'scraps/scrap_button', interior: @interior %>
+  <p><%= @interior.title %></p>
+  <%= image_tag(@interior.photo_url) if @interior.photo.present? %>
+  <%= render 'scraps/scrap_button', interior: @interior %>
+
 <div>
   <% if current_user == @interior.user %>
   <%= link_to '編集', edit_interior_path(@interior), class: 'btn btn-info btn-xs' %>
   <%= link_to "削除", @interior, method: :delete, data: { confirm: "削除しますか?" }, class: 'btn btn-danger btn-xs' %>
   <% end %>
+</div>
+   </div>
+    <%= link_to 'Toppageへ戻る', root_url %>
+  </div>
 </div>

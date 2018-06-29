@@ -56,3 +56,4 @@ gem 'kaminari'
 #写真投稿
 gem 'carrierwave'
 gem 'rmagick'
+gem 'mini_magick'

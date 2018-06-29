@@ -5,21 +5,27 @@
     <li class="media">
       
       <div class="media-body">
-        <div><%= link_to interior.user.name, user_path(interior.user) %></div>
+        <div><%= @user.name %></div>
         <div>
           <p><%= interior.title %></p>
-           <%= image_tag(interior.photo_url) if interior.photo.present? %>
-          <div>
-           <%= link_to '詳細画面へ', interior_path(interior) %>
-          </div>
+          <%= render 'scraps/scrap_button', interior: interior %>
+           <%= image_tag interior.photo_url(:thumb) %>
         </div>
         <div>
-        <%= render 'scraps/scrap_button', interior: interior %>
-        </div>
-        <div>
-        <% if current_user == interior.user %>
-        <%= link_to "Delete", interior, method: :delete, data: { confirm:"削除してよろしいですか？" }, class: 'btn btn-danger btn-xs' %>
-        <% end %>
+          <% if logged_in? %>
+            <button type="button" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-search" aria-hidden="true">
+            <%= link_to '詳細画面へ', interior_path(interior) %>
+            </span>
+            </button>
+          <% end %>
+          <% if current_user == interior.user %>
+            <button type="button" class="btn btn-warning" aria-label="Left Align">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true">
+            <%= link_to "投稿を削除する", interior, method: :delete, data: { confirm:"削除してよろしいですか？" } %>
+            </span>
+          </button>
+          <% end %>
         </div>
       </div>
     </li>
