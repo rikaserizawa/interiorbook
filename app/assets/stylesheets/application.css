@@ -2,7 +2,7 @@
 
 /* body */
 body {
-  background: #ddceb8;
+  background: #eae0d0;
 }
 
 /* footer */
@@ -58,4 +58,12 @@ color: #fff;
 }
 .navbar-default .navbar-text{
   color: #fff;
+}
+
+/*Mybookタブ*/
+.nav-tabs li.active{
+  background-color: #a6937c;
+}
+.media{
+  padding-top: 10px;
 }

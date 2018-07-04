@@ -57,3 +57,9 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
+
+#検索
+gem 'ransack', github: 'activerecord-hackery/ransack'
+
+#enum
+gem 'enum_help'

@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: 85fc41b329ca2b316bab32c464dd8920fae74998
+  specs:
+    ransack (1.8.8)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -56,6 +66,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.25)
@@ -185,6 +197,7 @@ DEPENDENCIES
   byebug
   carrierwave
   coffee-rails (~> 4.2)
+  enum_help
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
@@ -193,6 +206,7 @@ DEPENDENCIES
   mysql2 (>= 0.3.18, < 0.5)
   puma (~> 3.0)
   rails (~> 5.0.6)
+  ransack!
   rmagick
   sass-rails (~> 5.0)
   spring

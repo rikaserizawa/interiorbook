@@ -9,9 +9,10 @@
     <% end %>
 <% else %>
     <button type="button" class="btn btn-default" aria-label="Left Align">
-    <span class="glyphicon glyphicon-paperclip" aria-hidden="true">
+    
     <%= form_for(interior.scraps.build) do |f| %>
       <%= hidden_field_tag :interior_id, interior.id %>
+      <span class="glyphicon glyphicon-paperclip" aria-hidden="true">
       <%= f.submit 'Scrapする' %>
     </span>
     </button>

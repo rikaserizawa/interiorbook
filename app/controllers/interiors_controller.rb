@@ -2,6 +2,19 @@ class InteriorsController < ApplicationController
   before_action :require_user_logged_in
   before_action :correct_user, only: [:destroy]
 
+  def index
+    #@interiors = Interior.search(params[:search])
+    #@search = Interior.search(params[:q]) 
+    #@interior = @search.result 
+    @q = Interior.ransack(params[:q]) 
+    @interior  =  @q .result
+  end
+  
+  def search
+    index
+    render :index
+  end
+
   def create
     @interior = current_user.interiors.build(interior_params)
     if @interior.save
@@ -10,7 +23,7 @@ class InteriorsController < ApplicationController
     else
       @interiors = current_user.interiors.order('created_at DESC').page(params[:page])
       flash.now[:danger] = 'Interiorの投稿に失敗しました。'
-      render user_path(current_user)
+      render :show
     end
   end
 
@@ -22,6 +35,7 @@ class InteriorsController < ApplicationController
   
   def show
     @interior = Interior.find(params[:id])
+    @user = current_user
   end
   
   def edit
@@ -47,7 +61,7 @@ class InteriorsController < ApplicationController
   private
 
   def interior_params
-    params.require(:interior).permit(:title, :photo)
+    params.require(:interior).permit(:title, :photo, :taste, :room, :appeal)
   end
   
   def correct_user

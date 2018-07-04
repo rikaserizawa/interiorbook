@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   include SessionsHelper
+  
+  before_action :set_search_query
+  def set_search_query
+    @q = Interior.ransack(params[:q])
+  end
 
   private
 
@@ -13,5 +18,7 @@ class ApplicationController < ActionController::Base
   
   def counts(user)
     @count_scraps = user.scraps.count
+    @count_interiors = user.interiors.count
   end
+  
 end

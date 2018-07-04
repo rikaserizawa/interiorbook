@@ -1,0 +1,14 @@
+<tbody>
+
+  INDEX
+</tbody>
+
+<%= search_form_for(@q, format: :pdf) do |f| %>
+<%= search_form_for(@q, format: :json) do |f| %>
+
+<% @interior.each do |interior| %>
+<%= interior.title %>
+<% end %>
+
+<% end %>
+<% end %>

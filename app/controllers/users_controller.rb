@@ -3,9 +3,10 @@ class UsersController < ApplicationController
   
   def show #mybookのページ
     @user = User.find(params[:id])
-    #@user = current_user
+    @user = current_user
     @interior = current_user.interiors.build  # form_for 用
     @interiors = current_user.interiors.order('created_at DESC').page(params[:page])
+    counts(@user)
   end
   
   def new
@@ -44,6 +45,7 @@ class UsersController < ApplicationController
   def scraps
     @user = User.find(params[:id])
     @scraps = @user.scraps.page(params[:page])
+    @interior = current_user.interiors.build  # form_for 用
     counts(@user)
   end
 
