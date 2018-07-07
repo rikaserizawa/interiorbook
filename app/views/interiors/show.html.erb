@@ -1,32 +1,37 @@
 <div class="row">
   <div class="col-xs-offset-3 col-xs-6">
-    <div class="panel panel-warning">
+    <div class="panel panel-warning text-center">
       <div class="panel-heading">
         <%= @interior.title %>の詳細ページ
       </div>
       
-  <p><%= @interior.title %></p>    
-  <p><%= link_to @interior.user.name, user_path(@interior.user) %></p>
-  <p>キーワード</p>
-  <%= image_tag(@interior.photo_url) if @interior.photo.present? %>
-  <p><%= @interior.appeal %></p>
-  <%= render 'scraps/scrap_button', interior: @interior %>
+    <h3><%= @interior.title %></h3>    
+    <p><%= link_to @interior.user.name, user_path(@interior.user) %></p>
+  <div class="col-xs-6">
+    <p>インテリアテイスト：<%= @interior.taste_i18n %></p>
+  </div>
+  <div class="col-xs-6">
+    <p>場所：<%= @interior.room_i18n %></p>
+  </div>
+    <h4><%= @interior.appeal %></h4>
+    <%= render 'scraps/scrap_button', interior: @interior %><br>
+    <%= image_tag(@interior.photo_url) if @interior.photo.present? %>
 
-<div>
-  <% if current_user == @interior.user %>
-  <button type="button" class="btn btn-default" aria-label="Left Align">
-    <span class="glyphicon glyphicon-pencil" aria-hidden="true">
-      <%= link_to 'Interiorを編集する', edit_interior_path(@interior) %>
-    </span>
-  </button>
-  <button type="button" class="btn btn-warning" aria-label="Left Align">
-    <span class="glyphicon glyphicon-trash" aria-hidden="true">
-      <%= link_to "投稿を削除する", @interior, method: :delete, data: { confirm:"削除してよろしいですか？" } %>
-    </span>
-  </button>
-  <% end %>
-</div>
-   </div>
+  <div>
+    <% if current_user == @interior.user %>
+      <button type="button" class="btn btn-default" aria-label="Left Align">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+          <%= link_to 'Interiorを編集する', edit_interior_path(@interior) %>
+        </span>
+      </button>
+      <button type="button" class="btn btn-warning" aria-label="Left Align">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true">
+          <%= link_to "投稿を削除する", @interior, method: :delete, data: { confirm:"削除してよろしいですか？" } %>
+        </span>
+      </button>
+    <% end %>
+  </div>
+    </div>
     <%= link_to 'Toppageへ戻る', root_url %>
   </div>
 </div>

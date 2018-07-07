@@ -1,5 +1,5 @@
 <% if interior.faving?(current_user) %>
-    <button type="button" class="btn btn-default" aria-label="Left Align">
+    <button type="button" class="btn btn-default" aria-label="Left Align"> <!--こちらのbuttonはデザインのためです-->
     <span class="glyphicon glyphicon-paperclip" aria-hidden="true">
     <%= form_for(interior.scraps.find_by(user_id: current_user.id), html: { method: :delete }) do |f| %>
       <%= hidden_field_tag :interior_id, interior.id %>
@@ -9,7 +9,6 @@
     <% end %>
 <% else %>
     <button type="button" class="btn btn-default" aria-label="Left Align">
-    
     <%= form_for(interior.scraps.build) do |f| %>
       <%= hidden_field_tag :interior_id, interior.id %>
       <span class="glyphicon glyphicon-paperclip" aria-hidden="true">

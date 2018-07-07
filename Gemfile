@@ -59,7 +59,9 @@ gem 'rmagick'
 gem 'mini_magick'
 
 #検索
-gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'ransack'
 
 #enum
 gem 'enum_help'
+
+gem 'pry-byebug', group: :development

@@ -21,6 +21,11 @@
         <%= f.label :password, 'パスワード' %>
         <%= f.password_field :password, class: 'form-control' %>
       </div>
+      
+      <div class="form-group">
+          <span>写真</span>
+          <%= f.file_field :image %>
+        </div>
   
       <div class="form-group">
         <%= f.label :profile, 'プロフィール' %>

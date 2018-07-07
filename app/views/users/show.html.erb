@@ -3,6 +3,9 @@
 <div class="row">
   <aside class="col-md-4">
     <%= render 'users', users: @users %>
+    <% if current_user == @user %>
+    <%= render 'interiors/new', interiors: @interiors %>
+    <% end %>
   </aside>
     
   <div class="col-xs-8">

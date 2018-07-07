@@ -27,31 +27,28 @@
       </button>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <% if logged_in? %>
-        <p class="navbar-text">ようこそ 、<%= current_user.name %> さん</p>
-        <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to 'MyBook', user_path(current_user) %></li>
-        <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
-        </ul>
-        <% else %>
-        <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to 'HOME', root_url %></li>
-        <li><%= link_to '新規登録', signup_path %></li>
-        <li><%= link_to 'ログイン', login_path %></li>
-        </ul>
-        <% end %>
-      <div class="navbar-form navbar-right" role="search">
-        <%= search_form_for @q do |f| %>
-        <div class="form-group">
-          <%= f.label :title_or_appeal_cont, "検索" %>
-          <%= f.text_field :title_or_appeal_cont, class: "form-control" %>
-        </div>
-        <div class="actions"><%= f.submit "Search" %></div>
-        <% end %>
-        
-        
-        
-			</div>
+          <% if logged_in? %>
+            <p class="navbar-text">ようこそ 、<%= current_user.name %> さん</p>
+            <ul class="nav navbar-nav navbar-left">
+              <li><%= link_to 'HOME', root_url %></li>
+              <li><%= link_to 'MyBook', user_path(current_user) %></li>
+              <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+            </ul>
+          <% else %>
+            <ul class="nav navbar-nav navbar-left">
+              <li><%= link_to 'HOME', root_url %></li>
+              <li><%= link_to '新規登録', signup_path %></li>
+              <li><%= link_to 'ログイン', login_path %></li>
+            </ul>
+          <% end %>
+        <div class="navbar-form navbar-right" role="search">
+          <%= search_form_for @q do |f| %>
+            <div class="form-group">
+              <%= f.text_field :title_or_appeal_cont, class: "form-control" %>
+              <%= f.submit "検索" %>
+            </div>
+          <% end %>
+	  		</div>
 			</div>
     </div>
 </nav>

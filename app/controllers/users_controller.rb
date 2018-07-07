@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show]
   
-  def show #mybookのページ
+  #mybookのページ
+  def show 
     @user = User.find(params[:id])
-    @user = current_user
+    #@user = current_user
     @interior = current_user.interiors.build  # form_for 用
     @interiors = current_user.interiors.order('created_at DESC').page(params[:page])
     counts(@user)
@@ -52,6 +53,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :profile)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :profile)
   end
 end

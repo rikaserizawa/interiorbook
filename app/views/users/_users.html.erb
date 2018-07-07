@@ -2,10 +2,10 @@
     <div class="user-profile">
       <aside>
         <div class="icon text-center">
-          <img src="<%= gravatar_url(@user, size: 100) %>" alt="" class="img-circle">
+          <div class="img-circle"><%= image_tag(@user.image_url) if @user.image.present? %></div>
         </div>
         <div class="name text-center">
-          <h1><%= @user.name %></h1>
+          <h3><%= @user.name %></h3>
         </div>
       </aside>
       <div class="profile text-center">
@@ -18,31 +18,7 @@
       <% end %>
     </div>
     
-    <div class="text-center text-muted"><img src="/images/interior_icon.png" alt="NewInterior" width="auto" height="40"></div>
-      <%= form_for(@interior) do |f| %>
-        <div class="form-group">
-          <span>タイトル</span>
-          <%= f.text_area :title, class: 'form-control', rows: 1 %>
-        </div>
-        <div class="form-group">
-          <span>写真</span>
-          <%= f.file_field :photo %>
-        </div>
-        <div class="form-group">
-          <span>インテリアテイスト</span>
-          <%= f.select :taste, {"ナチュラル"=>"natural", "シャビーシック"=>"shabbychic", "インダストリアル"=>"industrial", "北欧風"=>"nordic","アメリカン"=>"american", "モダン"=>"modern", "その他"=>"other"}, class:'form-control' %>
-        </div>
-        <div class="form-group">
-          <span>場所</span>
-          <%= f.select :room, {"リビング"=>"living", "キッチン"=>"kitchen", "サニタリー"=>"sanitary", "寝室"=>"bedroom", "子供部屋"=>"childrenroom", "玄関"=>"entrance", "その他"=>"another"}, class:'form-control' %>
-        </div>
-        <div class="form-group">
-          <span>アピールポイント</span>
-          <%= f.text_area :appeal, class: 'form-control', rows: 3 %>
-        </div>
-        
-        <%= f.submit '投稿する', class: 'btn btn-primary btn-block' %>
-      <% end %>
+  
   
     
 

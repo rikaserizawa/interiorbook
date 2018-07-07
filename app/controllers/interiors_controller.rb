@@ -1,13 +1,19 @@
 class InteriorsController < ApplicationController
-  before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
+  before_action :require_user_logged_in ,only: [:create, :destroy, :edit, :update]
+  before_action :correct_user, only: [:create, :destroy, :edit, :update]
 
   def index
     #@interiors = Interior.search(params[:search])
     #@search = Interior.search(params[:q]) 
     #@interior = @search.result 
-    @q = Interior.ransack(params[:q]) 
-    @interior  =  @q .result
+    if params[:q]
+      @q = Interior.ransack(params[:q]) 
+      @interiors  =  @q.result
+    elsif params[:taste]
+      @interiors = Interior.where(taste: params[:taste])
+    elsif params[:room]
+      @interiors = Interior.where(room: params[:room])
+    end
   end
   
   def search

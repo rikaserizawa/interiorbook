@@ -1,13 +1,3 @@
-GIT
-  remote: https://github.com/activerecord-hackery/ransack.git
-  revision: 85fc41b329ca2b316bab32c464dd8920fae74998
-  specs:
-    ransack (1.8.8)
-      actionpack (>= 3.0)
-      activerecord (>= 3.0)
-      activesupport (>= 3.0)
-      i18n
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -57,6 +47,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -115,6 +106,14 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.3)
       mini_portile2 (~> 2.3.0)
+    polyamorous (1.3.3)
+      activerecord (>= 3.0)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-byebug (3.6.0)
+      byebug (~> 10.0)
+      pry (~> 0.10)
     puma (3.11.4)
     rack (2.0.5)
     rack-test (0.6.3)
@@ -143,6 +142,12 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (12.3.1)
+    ransack (1.8.8)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -204,9 +209,10 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_magick
   mysql2 (>= 0.3.18, < 0.5)
+  pry-byebug
   puma (~> 3.0)
   rails (~> 5.0.6)
-  ransack!
+  ransack
   rmagick
   sass-rails (~> 5.0)
   spring

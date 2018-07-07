@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-offset-3 col-xs-6">
-    <div class="panel panel-warning">
+    <div class="panel panel-warning text-center">
       <div class="panel-heading">
         <%= @interior.title %>の編集ページ</h1>
       </div>
@@ -12,11 +12,20 @@
         <%= f.text_field :title %>
       </div>
       
-      <!--写真は修正できない、キーワードが追加になる。-->
-      
       <div class="form-group">
+          <%= f.label :taste, 'インテリアテイスト' %>
+          <%= f.select :taste, {"ナチュラル"=>"natural", "シャビーシック"=>"shabbychic", "インダストリアル"=>"industrial", "北欧風"=>"nordic","アメリカン"=>"american", "モダン"=>"modern", "その他"=>"other"}, class:'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :room, '場所' %>
+          <%= f.select :room, {"リビング"=>"living", "キッチン"=>"kitchen", "サニタリー"=>"sanitary", "寝室"=>"bedroom", "子供部屋"=>"childrenroom", "玄関"=>"entrance", "その他"=>"another"}, class:'form-control' %>
+        </div>
+      
+      <!--写真は修正できない-->
+      
+      <div class="form-group" >
         <%= f.label :appeal, 'アピールポイント' %>
-        <%= f.text_field :appeal %>
+        <%= f.text_area :appeal, rows: 3%>
       </div>
       
       <%= f.submit '修正' %>
