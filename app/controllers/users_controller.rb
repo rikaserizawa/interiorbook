@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show]
+  before_action :require_user_logged_in, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:destroy, :edit, :update]
   
   #mybookのページ
   def show 
@@ -25,6 +26,12 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  
+  def destroy
+    @user.destroy
+    flash[:success] = 'ユーザー登録を削除しました。'
+    redirect_back(fallback_location: root_path)
+  end  
 
   def edit
     @user = User.find(params[:id])
@@ -55,4 +62,10 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :profile)
   end
+  
+  def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless @user == current_user
+  end
+  
 end
