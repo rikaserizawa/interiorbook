@@ -11,7 +11,6 @@
         <div>
           <%= image_tag interior.photo_url(:thumb) %>
         </div>
-        <div><%= interior.appeal %></div>
         <div>
           <% if logged_in? %>
             <%= render 'scraps/scrap_button', interior: interior %>

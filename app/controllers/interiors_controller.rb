@@ -1,6 +1,6 @@
 class InteriorsController < ApplicationController
   before_action :require_user_logged_in ,only: [:create, :destroy, :edit, :update]
-  before_action :correct_user, only: [:create, :destroy, :edit, :update]
+  before_action :correct_user, only: [:destroy, :edit, :update]
 
   def index
     #@interiors = Interior.search(params[:search])
@@ -23,7 +23,7 @@ class InteriorsController < ApplicationController
 
   def create
     @interior = current_user.interiors.build(interior_params)
-    if @interior.save
+    if @interior.save!
       flash[:success] = 'Interiorを投稿しました。'
       redirect_to user_path(current_user)
     else

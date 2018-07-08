@@ -8,11 +8,11 @@
         <h4><%= interior.title %></h4>
         <div>投稿者名：<%= link_to interior.user.name, user_path(interior.user) %></div>
         <div>
-          <%= image_tag interior.photo_url(:thumb) %>
+          <%= image_tag interior.photo_url(:thumb) %><br>
+          <%= render 'scraps/scrap_button', interior: interior %>
         </div>
         <div>
           <% if logged_in? %>
-            <%= render 'scraps/scrap_button', interior: interior %><br>
             <button type="button" class="btn btn-default" aria-label="Left Align">
             <span class="glyphicon glyphicon-search" aria-hidden="true">
             <%= link_to '詳細画面へ', interior_path(interior) %>

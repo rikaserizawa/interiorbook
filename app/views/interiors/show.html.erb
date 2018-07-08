@@ -8,14 +8,14 @@
     <h3><%= @interior.title %></h3>    
     <p><%= link_to @interior.user.name, user_path(@interior.user) %></p>
   <div class="col-xs-6">
-    <p>インテリアテイスト：<%= @interior.taste_i18n %></p>
+    <p>インテリアテイスト：<%= @interior.taste %></p>
   </div>
   <div class="col-xs-6">
-    <p>場所：<%= @interior.room_i18n %></p>
+    <p>場所：<%= @interior.room %></p>
   </div>
     <h4><%= @interior.appeal %></h4>
+    <%= image_tag(@interior.photo_url) if @interior.photo.present? %><br>
     <%= render 'scraps/scrap_button', interior: @interior %><br>
-    <%= image_tag(@interior.photo_url) if @interior.photo.present? %>
 
   <div>
     <% if current_user == @interior.user %>
