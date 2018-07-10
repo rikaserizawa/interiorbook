@@ -33,7 +33,7 @@ color: #fff;
 }
 .cover .cover-inner {
   height: 100%;
-  margin: auto;
+  margin-top: 80px;
   display: table;
 }
 .cover .cover-inner .cover-contents {
@@ -72,3 +72,7 @@ color: #fff;
   border-radius: 50%; 
 }
 
+.badge {
+  background-color: #a6937c;
+  color:  #fff;
+}

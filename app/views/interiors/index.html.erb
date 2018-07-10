@@ -3,7 +3,7 @@
 
     <div class="media">
       <div class="panel panel-warning text-center">
-        <h4><%= interior.title %></h4>
+        <h4><%= interior.title %><span class="badge"><span class="glyphicon glyphicon-paperclip"></span><%= interior.scraps_count %></span></h4>
         <div>投稿者名：<%= link_to interior.user.name, user_path(interior.user) %></div>
         <div>
           <%= image_tag interior.photo_url(:thumb) %>

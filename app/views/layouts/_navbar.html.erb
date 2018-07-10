@@ -2,15 +2,21 @@
   
   <% if logged_in? %>
   <div class="cover">
-    <div class="text-center text-muted"><img src="/images/logo_b.png" alt="InteriorBook"></div>
+    <div class="text-center"><%= link_to(image_tag("/images/logo_b.png") , root_url) %></div>
   </div>
   <% else %>
   <div class="cover">
-    <a class="navbar-left" href="/"><img src="/images/logo_b.png" alt="InteriorBook"></a>
-    <div class="cover-inner">
-      <div class="cover-contents">
-        <h3>メンバー登録をすると、写真の投稿・詳細閲覧ができます。</h3>
-        <%= link_to 'InteriorBookをはじめる', signup_path, class: 'btn btn-danger btn-lg' %>
+    <aside class="col-md-4 col-sm-6 col-xs-12">
+      <div class="text-center"><%= link_to(image_tag("/images/logo_b.png") , root_url) %></div>
+    </aside>
+    <div class="col-md-8 col-sm-6 col-xs-12">
+      <div class="cover-inner">
+        <div class="cover-contents">
+          <div class="text-center">
+            <h3>メンバー登録をすると、写真の投稿・詳細閲覧ができます。</h3>
+            <%= link_to 'InteriorBookをはじめる', signup_path, class: 'btn btn-danger btn-lg' %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

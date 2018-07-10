@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-paperclip" aria-hidden="true">
     <%= form_for(interior.scraps.find_by(user_id: current_user.id), html: { method: :delete }) do |f| %>
       <%= hidden_field_tag :interior_id, interior.id %>
-        <%= f.submit 'Scrapから外す'%>
+        <span><%= f.submit 'Scrapから外す'%></span>
     </span>
     </button>
     <% end %>

@@ -1,0 +1,35 @@
+<h1 class="text-center">ランキング</h1>
+<% if @interiors.present? %>
+  <div class="row">
+    <% @interiors.each_with_index do |interior, index| %>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="media">
+          <div class="panel panel-warning text-center">
+            <h4><%= interior.title %><span class="badge"><span class="glyphicon glyphicon-paperclip"></span><%= interior.scraps_count %></span></h4>
+            <div>投稿者名：<%= link_to interior.user.name, user_path(interior.user) %></div>
+            <div>
+              <%= image_tag interior.photo_url(:thumb) %>
+            </div>
+            <div>
+              <% if logged_in? %>
+                <%= render 'scraps/scrap_button', interior: interior %><br>
+                <button type="button" class="btn btn-default" aria-label="Left Align">
+                <span class="glyphicon glyphicon-search" aria-hidden="true">
+                <%= link_to '詳細画面へ', interior_path(interior) %>
+                </span>
+                </button>
+              <% end %>
+              <% if current_user == interior.user %>
+                <button type="button" class="btn btn-warning" aria-label="Left Align">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true">
+                <%= link_to "投稿を削除する", interior, method: :delete, data: { confirm:"削除してよろしいですか？" } %>
+                </span>
+                </button>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

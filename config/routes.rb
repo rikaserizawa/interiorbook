@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   
   get 'signup', to: 'users#new'
   
+  get 'rankings/scrap', to: 'rankings#scrap'
+  
   resources :users, only: [:show, :new, :create, :edit, :destroy, :update]do
     member do
       get :scraps

@@ -3,9 +3,6 @@ class InteriorsController < ApplicationController
   before_action :correct_user, only: [:destroy, :edit, :update]
 
   def index
-    #@interiors = Interior.search(params[:search])
-    #@search = Interior.search(params[:q]) 
-    #@interior = @search.result 
     if params[:q]
       @q = Interior.ransack(params[:q]) 
       @interiors  =  @q.result

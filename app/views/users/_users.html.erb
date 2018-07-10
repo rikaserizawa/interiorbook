@@ -1,26 +1,18 @@
-
-    <div class="user-profile">
-      <aside>
-        <div class="icon text-center">
-          <div class="img-circle"><%= image_tag(@user.image_url) if @user.image.present? %></div>
-        </div>
-        <div class="name text-center">
-          <h3><%= @user.name %></h3>
-        </div>
-      </aside>
-      <div class="profile text-center">
-        <p>プロフィール:<%= @user.profile %></p>
-      </div>
+<div class="user-profile">
+  <aside>
+    <div class="icon text-center">
+      <div class="img-circle"><%= image_tag(@user.image_url) if @user.image.present? %></div>
     </div>
-    <div>
-      <% if current_user == @user %>
-        <%= link_to '編集', edit_user_path(@user), class: 'btn btn-info btn-sm  btn-block' %>
-      <% end %>
+    <div class="name text-center">
+      <h3><%= @user.name %></h3>
     </div>
-    
-  
-  
-    
-
-    
-  
+  </aside>
+    <div class="profile text-center">
+      <p>プロフィール:<%= @user.profile %></p>
+    </div>
+</div>
+  <div>
+    <% if current_user == @user %>
+      <%= link_to '編集', edit_user_path(@user), class: 'btn btn-info btn-sm  btn-block' %>
+    <% end %>
+  </div>

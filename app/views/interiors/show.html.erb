@@ -5,7 +5,7 @@
         <%= @interior.title %>の詳細ページ
       </div>
       
-    <h3><%= @interior.title %></h3>    
+    <h3><%= @interior.title %><span class="badge"><span class="glyphicon glyphicon-paperclip"></span><%= @interior.scraps_count %></span></h3>
     <p><%= link_to @interior.user.name, user_path(@interior.user) %></p>
   <div class="col-xs-6">
     <p>インテリアテイスト：<%= @interior.taste %></p>
