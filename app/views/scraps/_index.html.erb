@@ -2,17 +2,18 @@
 <ul class="media-list">
   <% @scraps.each do |scrap| %>
   <% interior = Interior.find(scrap.interior_id) %>
-  <div class="col-md-4 col-sm-6 col-xs-12">
+  <div class="col-md-4 col-sm-6 col-xs-6">
    <li class="media">
       <div class="panel panel-warning text-center">
+        <div class="tmb">
         <h4><%= interior.title %><span class="badge"><span class="glyphicon glyphicon-paperclip"></span><%= interior.scraps_count %></span></h4>
-        <div>投稿者名：<%= link_to interior.user.name, user_path(interior.user) %></div>
+        <div>投稿者：<%= link_to interior.user.name, user_path(interior.user) %></div>
         <div>
-          <%= image_tag interior.photo_url(:thumb) %><br>
-          <%= render 'scraps/scrap_button', interior: interior %>
-        </div>
+          <%= image_tag interior.photo_url(:thumb) %>
+          </div>
         <div>
           <% if logged_in? %>
+            <%= render 'scraps/scrap_button', interior: interior %>
             <button type="button" class="btn btn-default" aria-label="Left Align">
             <span class="glyphicon glyphicon-search" aria-hidden="true">
             <%= link_to '詳細画面へ', interior_path(interior) %>
