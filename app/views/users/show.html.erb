@@ -3,19 +3,21 @@
 <% end %>
 
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-4 col-xs-12">
     <%= render 'users', users: @users %>
     <% if current_user == @user %>
     <%= render 'interiors/new', interiors: @interiors %>
     <% end %>
   </aside>
     
-  <div class="col-xs-8">
-    <ul class="nav nav-tabs nav-justified">
-      <li class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %>Interiors <span class="badge"><%= @count_interiors %></span><% end %></li>
-      <li class="<%= 'active' if current_page?(scraps_user_path(@user)) %>"><%= link_to scraps_user_path(@user) do %>Scraps <span class="badge"><%= @count_scraps %></span><% end %></li>
-    </ul>
+  <div class="col-md-8 col-xs-12">
+    <div class="text-center">
+      <ul class="nav nav-tabs nav-justified">
+        <li class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %>Interiors <span class="badge"><%= @count_interiors %></span><% end %></li>
+        <li class="<%= 'active' if current_page?(scraps_user_path(@user)) %>"><%= link_to scraps_user_path(@user) do %>Scraps <span class="badge"><%= @count_scraps %></span><% end %></li>
+      </ul>
       <%= render 'interiors/interiors', interiors: @interiors %>
+    </div>
   </div>
 </div>
 </div>

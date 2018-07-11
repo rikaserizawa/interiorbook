@@ -10,7 +10,9 @@ class User < ApplicationRecord
   #user写真
   mount_uploader :image, ImageUploader
   
-  has_many :interiors
+  has_many :interiors, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  
   # お気に入り
   has_many :scraps, dependent: :destroy
 end

@@ -39,6 +39,9 @@ class InteriorsController < ApplicationController
   def show
     @interior = Interior.find(params[:id])
     @user = current_user
+    #コメント作成用
+    @comment = @interior.comments.build(user_id: current_user.id) if current_user
+    @comments = @interior.comments.order('created_at DESC').page(params[:page])
   end
   
   def edit
