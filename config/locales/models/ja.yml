@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    attributes:
+      interior:
+        taste: インテリアテイスト
+        room: 場所
+      
+  enums:
+    interior:
+      taste:
+        natural: ナチュラル
+        shabbychic: シャビーシック
+        industrial: インダストリアル
+        nordic: 北欧風
+        american: アメリカン
+        modern: モダン
+        other: その他
+      
+      room:
+        living: リビング
+        kitchen: キッチン
+        sanitary: サニタリー
+        bedroom: 寝室
+        childrenroom: 子供部屋
+        entrance: 玄関
+        other: その他

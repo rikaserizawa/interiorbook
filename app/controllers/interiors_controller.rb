@@ -31,6 +31,7 @@ class InteriorsController < ApplicationController
   end
 
   def destroy
+    @interior = Interior.find(params[:id])
     @interior.destroy
     flash[:success] = 'Interiorを削除しました。'
     redirect_back(fallback_location: root_path)

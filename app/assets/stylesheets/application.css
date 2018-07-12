@@ -82,4 +82,8 @@ color: #fff;
   padding-bottom: 15px;
   height: 350px;
 }
-  
+
+.comments{
+  border-bottom-style: dotted;
+  border-bottom-color: #a6937c;
+}

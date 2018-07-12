@@ -5,10 +5,10 @@
       <h3><%= @interior.title %><span class="badge"><span class="glyphicon glyphicon-paperclip"></span><%= @interior.scraps_count %></span></h3>
       <p><%= link_to @interior.user.name, user_path(@interior.user) %></p>
     <div class="col-xs-6">
-      <p>インテリアテイスト：<%= @interior.taste %></p>
+      <p>テイスト：<%= @interior.taste_i18n %></p>
     </div>
     <div class="col-xs-6">
-      <p>場所：<%= @interior.room %></p>
+      <p>場所：<%= @interior.room_i18n %></p>
     </div>
       <h4><%= @interior.appeal %></h4>
       <%= image_tag(@interior.photo_url) if @interior.photo.present? %><br>
@@ -32,21 +32,21 @@
   </div>
 
   <div class="col-md-6 col-xs-12">
-  <div class="comments">
-    <div class="panel text-center">
-      <% @comments.each do |comment| %>
-      
-        <p><%= comment.user.name %></p><br>
-        <p><%= comment.body %></p>
-          <% if current_user == comment.user %>
-          <span class="glyphicon glyphicon-trash" aria-hidden="true">
-            <%= link_to 'コメントを削除', comment, method: :delete %>
-          </span>
-          <% end %>
-      <% end %>
+    <div class="panel panel-info text-center">
+      <div class="panel-heading">コメント一覧</div>
+        <% @comments.each do |comment| %>
+          <div class="comments ">
+            <p><%= comment.user.name %></p>
+            <p><%= comment.body %></p>
+              <% if current_user == comment.user %>
+              <span class="glyphicon glyphicon-trash" aria-hidden="true">
+              <%= link_to 'コメントを削除', comment, method: :delete %>
+              </span>
+              <% end %>
+          </div>
+        <% end %>
     </div>
     <%= render 'comments/form' %>
-  </div>
   </div>
 </div>
 <div class="row">
