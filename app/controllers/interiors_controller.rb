@@ -1,5 +1,5 @@
 class InteriorsController < ApplicationController
-  before_action :require_user_logged_in ,only: [:create, :destroy, :edit, :update]
+  before_action :require_user_logged_in ,only: [:create, :destroy, :show, :edit, :update]
   before_action :correct_user, only: [:destroy, :edit, :update]
 
   def index
@@ -31,16 +31,18 @@ class InteriorsController < ApplicationController
   end
 
   def destroy
-    @interior = Interior.find(params[:id])
+    @user = current_user
+    @interior = Interior.find_by(id: params[:id])
     @interior.destroy
     flash[:success] = 'Interiorを削除しました。'
-    redirect_back(fallback_location: root_path)
+    redirect_to @user
   end
   
+  #インテリア詳細ページ
   def show
-    @interior = Interior.find(params[:id])
+    @interior = Interior.find_by(id: params[:id])
     @user = current_user
-    #コメント作成用
+    #コメント用
     @comment = @interior.comments.build(user_id: current_user.id) if current_user
     @comments = @interior.comments.order('created_at DESC').page(params[:page])
   end

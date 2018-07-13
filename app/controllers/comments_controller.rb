@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   before_action :require_user_logged_in
 
   def create
-    @comment = Comment.new(comment_params)
+    #@comment = Comment.new(comment_params)
+    @comment = current_user.comments.build(comment_params)
     @interior = Interior.find(params[:comment][:interior_id])
     if @comment.save!
       flash[:success] = 'コメントを投稿しました。'
