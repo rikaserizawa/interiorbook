@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: houjwv21h
+  api_key: '435516863819793'
+  api_secret: Z3PHcE-XgneHiQjhs_546bxt2fs
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: houjwv21h
+  api_key: '435516863819793'
+  api_secret: Z3PHcE-XgneHiQjhs_546bxt2fs
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: houjwv21h
+  api_key: '435516863819793'
+  api_secret: Z3PHcE-XgneHiQjhs_546bxt2fs
+  enhance_image_tag: true
+  static_image_support: false

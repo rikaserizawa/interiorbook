@@ -74,3 +74,5 @@ end
 
 #カウント数
 gem 'counter_culture', '~> 1.0'
+
+gem 'cloudinary'
