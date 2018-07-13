@@ -1,52 +1,52 @@
 <div class="row">
   <div class="col-md-4 col-sm-4 col-xs-12">
     <div class="topimg">
-      <img src="/images/top_l.jpg" class="img-thumbnail" alt="InteriorBook"   >
+      <img src="/images/top_l.jpg" class="img-thumbnail" alt=" "   >
     </div>  
   </div>
   <div class="col-md-4 col-sm-4 col-xs-12">
     <div class="topimg">
-      <img src="/images/top_c.png" class="img-thumbnail" alt="InteriorBook"  >
+      <img src="/images/top_c.png" class="img-thumbnail" alt="InteriorBookへようこそ"  >
     </div>  
   </div>
   <div class="col-md-4 col-sm-4 col-xs-12">
     <div class="topimg">
-      <img src="/images/top_r.jpg" class="img-thumbnail" alt="InteriorBook" >
+      <img src="/images/top_r.jpg" class="img-thumbnail" alt=" " >
     </div>  
   </div>
 </div>
 
 <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-12">
-        <h1 class="text-center">テイストで検索する</h1>
-        <div class="media text-center">
-          <%= link_to 'ナチュラル', {:controller => "interiors", :action => "index" , :taste=> "natural"} %><br>
-          <%= link_to 'シャビーシック', {:controller => "interiors", :action => "index" , :taste=> "shabbychic"} %><br>
-          <%= link_to 'インダストリアル', {:controller => "interiors", :action => "index" , :taste=> "industrial"} %><br>
-          <%= link_to '北欧風', {:controller => "interiors", :action => "index" , :taste=> "nordic"} %><br>
-          <%= link_to 'アメリカン', {:controller => "interiors", :action => "index" , :taste=> "american"} %><br>
-          <%= link_to 'モダン', {:controller => "interiors", :action => "index" , :taste=> "modern"} %><br>
-          <%= link_to 'その他', {:controller => "interiors", :action => "index" , :taste=> "other"} %>
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-6 col-xs-12">
-        <h1 class="text-center">場所で検索する</h1>
-        <div class="media text-center">
-          <%= link_to 'リビング', {:controller => "interiors", :action => "index" , :room=> "living"} %><br>
-          <%= link_to 'キッチン', {:controller => "interiors", :action => "index" , :room=> "kitchen"} %><br>
-          <%= link_to 'サニタリー', {:controller => "interiors", :action => "index" , :room=> "sanitary"} %><br>
-          <%= link_to '寝室', {:controller => "interiors", :action => "index" , :room=> "bedroom"} %><br>
-          <%= link_to '子供部屋', {:controller => "interiors", :action => "index" , :room=> "childrenroom"} %><br>
-          <%= link_to '玄関', {:controller => "interiors", :action => "index" , :room=> "entrance"} %><br>
-          <%= link_to 'その他', {:controller => "interiors", :action => "index" , :room=> "another"} %>
-        </div>
-      </div>
-      <div class="col-md-12 col-xs-12">
-        <h2 class="text-center">ランキングで検索する</h2>
-        <div class="media text-center">
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <h1 class="text-center">テイストで検索する</h1>
+    <div class="media text-center">
+      <%= link_to 'ナチュラル', {:controller => "interiors", :action => "index" , :taste=> "natural"} %><br>
+      <%= link_to 'シャビーシック', {:controller => "interiors", :action => "index" , :taste=> "shabbychic"} %><br>
+      <%= link_to 'インダストリアル', {:controller => "interiors", :action => "index" , :taste=> "industrial"} %><br>
+      <%= link_to '北欧風', {:controller => "interiors", :action => "index" , :taste=> "nordic"} %><br>
+      <%= link_to 'アメリカン', {:controller => "interiors", :action => "index" , :taste=> "american"} %><br>
+      <%= link_to 'モダン', {:controller => "interiors", :action => "index" , :taste=> "modern"} %><br>
+      <%= link_to 'その他', {:controller => "interiors", :action => "index" , :taste=> "other"} %>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <h1 class="text-center">場所で検索する</h1>
+    <div class="media text-center">
+      <%= link_to 'リビング', {:controller => "interiors", :action => "index" , :room=> "living"} %><br>
+      <%= link_to 'キッチン', {:controller => "interiors", :action => "index" , :room=> "kitchen"} %><br>
+      <%= link_to 'サニタリー', {:controller => "interiors", :action => "index" , :room=> "sanitary"} %><br>
+      <%= link_to '寝室', {:controller => "interiors", :action => "index" , :room=> "bedroom"} %><br>
+      <%= link_to '子供部屋', {:controller => "interiors", :action => "index" , :room=> "childrenroom"} %><br>
+      <%= link_to '玄関', {:controller => "interiors", :action => "index" , :room=> "entrance"} %><br>
+      <%= link_to 'その他', {:controller => "interiors", :action => "index" , :room=> "another"} %>
+    </div>
+  </div>
+  <div class="col-md-12 col-xs-12">
+    <h2 class="text-center">ランキングで検索する</h2>
+      <div class="media text-center">
         <%= link_to '一覧を表示する', rankings_scrap_path %>
-        </div>
       </div>
+  </div>
 </div>
 
 
