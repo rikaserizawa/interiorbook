@@ -81,6 +81,7 @@ color: #fff;
   padding-top: 15px;
   padding-bottom: 15px;
   height: 350px;
+  min-height: 200px;
 }
 
 .comments{
