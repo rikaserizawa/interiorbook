@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     #@user = current_user
     @interior = current_user.interiors.build  # form_for 用
-    @interiors = current_user.interiors.order('created_at DESC').page(params[:page])
+    @interiors = @user.interiors.order('created_at DESC').page(params[:page])
     counts(@user)
   end
   

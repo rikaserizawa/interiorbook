@@ -6,30 +6,38 @@
 
     <li class="media">
       <div class="panel panel-warning text-center">
-        <div class="tmb">
-        <h4><%= interior.title %><span class="badge"><span class="glyphicon glyphicon-paperclip"></span><%= interior.scraps_count %></span></h4>
-        <div>投稿者：<%= link_to interior.user.name, user_path(interior.user) %></div>
-        <div>
-          <%= image_tag interior.photo_url(:thumb) %>
-        </div>
-        <div>
           <% if logged_in? %>
-            <%= render 'scraps/scrap_button', interior: interior %><br>
-            <button type="button" class="btn btn-default" aria-label="Left Align">
-            <span class="glyphicon glyphicon-search" aria-hidden="true">
-            <%= link_to '詳細画面へ', interior_path(interior) %>
-            </span>
-            </button>
+          <div class="tmb_after">
+            <h4><%= interior.title %><span class="badge"><span class="glyphicon glyphicon-paperclip"></span><%= interior.scraps_count %></span></h4>
+            <div>投稿者：<%= link_to interior.user.name, user_path(interior.user) %></div>
+            <div>
+            <%= image_tag interior.photo_url(:thumb) %>
+            </div>
+            <div>
+                <%= render 'scraps/scrap_button', interior: interior %><br>
+                <button type="button" class="btn btn-default" aria-label="Left Align">
+                <span class="glyphicon glyphicon-search" aria-hidden="true">
+                  <%= link_to '詳細画面へ', interior_path(interior) %>
+                </span>
+                </button>
+              <% if current_user == interior.user %>
+                <button type="button" class="btn btn-warning" aria-label="Left Align">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true">
+                <%= link_to "投稿を削除する", interior, method: :delete, data: { confirm:"削除してよろしいですか？" } %>
+                </span>
+                </button>
+              <% end %>
+            </div>
+          </div>
+          <% else %>
+          <div class="tmb_before">
+              <h4><%= interior.title %><span class="badge"><span class="glyphicon glyphicon-paperclip"></span><%= interior.scraps_count %></span></h4>
+              <div>投稿者：<%= link_to interior.user.name, user_path(interior.user) %></div>
+              <div>
+              <%= image_tag interior.photo_url(:thumb) %>
+              </div>
+          </div>
           <% end %>
-          <% if current_user == interior.user %>
-            <button type="button" class="btn btn-warning" aria-label="Left Align">
-            <span class="glyphicon glyphicon-trash" aria-hidden="true">
-            <%= link_to "投稿を削除する", interior, method: :delete, data: { confirm:"削除してよろしいですか？" } %>
-            </span>
-            </button>
-          <% end %>
-        </div>
-      </div>
       </div>
     </li>
   </div>

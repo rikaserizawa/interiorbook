@@ -20,9 +20,8 @@ color: #fff;
   background-color: #a6937c;
   
 }
-.cover img.logo_b{
-  width:100px;
-  height: 100px;
+.logo_b img.logo_b{
+  max-width: 100px;
 }
 .cover {
   width: 100%;
@@ -77,11 +76,15 @@ color: #fff;
   color:  #fff;
 }
 
-.tmb {
+.tmb_after {
   padding-top: 15px;
   padding-bottom: 15px;
   height: 350px;
-  min-height: 200px;
+}
+.tmb_before {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: 250px;
 }
 
 .comments{
