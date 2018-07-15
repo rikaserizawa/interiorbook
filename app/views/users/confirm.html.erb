@@ -6,7 +6,7 @@
       </div>
         <% if current_user == @user %>
           <p>退会すると、インテリア写真の投稿、詳細の閲覧ができなくなってしまいます。</p>
-          <%= link_to "退会", @user, method: :delete, data: { confirm: "せっかくの会員登録を本当に削除しますか?" }, class: 'btn btn-danger btn-block' %>
+          <%= link_to "それでも退会する", @user, method: :delete, data: { confirm: "せっかくの会員登録を本当に削除しますか?" }, class: 'btn btn-danger btn-block' %>
         <% end %>
     </div>
     <div class="text-center"><h4><%= link_to 'MyBookへ戻る', user_path(@user) %></h4></div>
