@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:destroy, :edit, :update]
+  before_action :require_user_logged_in, only: [:show, :edit, :update, :confirm]
+  before_action :correct_user, only: [:destroy, :edit, :update, :confirm]
   
   #mybookのページ
   def show 
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   
   def destroy
     @user.destroy
-    flash[:success] = 'ユーザー登録を削除しました。'
+    flash[:success] = 'ユーザー登録を削除しました。ご利用ありがとうございました。'
     redirect_back(fallback_location: root_path)
   end  
 
@@ -56,6 +56,11 @@ class UsersController < ApplicationController
     @interior = current_user.interiors.build  # form_for 用
     counts(@user)
   end
+  
+  #ユーザー削除のページ
+  def confirm
+    @user = User.find(params[:id])
+  end
 
   private
 
@@ -64,8 +69,8 @@ class UsersController < ApplicationController
   end
   
   def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless @user == current_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless @user == current_user
   end
   
 end

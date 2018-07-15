@@ -40,7 +40,7 @@
 
       <div class="text-right">
         <% if current_user == @user %>
-        <p>会員登録の削除はこちら→<%= link_to "会員登録削除", @user, method: :delete, data: { confirm: "せっかくの会員登録を本当に削除しますか?" }, class: 'btn btn-danger btn-sm' %></p>
+        <p>会員登録の削除はこちら→<%= link_to "会員登録削除", confirm_user_path(@user) %></p>
         <% end %>
       </div>
     </div>

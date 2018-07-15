@@ -19,14 +19,17 @@ class InteriorsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @interior = current_user.interiors.build(interior_params)
-    if @interior.save!
+    @interiors = @user.interiors.order('created_at DESC').page(params[:page])
+    
+    if @interior.save
       flash[:success] = 'Interiorを投稿しました。'
       redirect_to user_path(current_user)
     else
       @interiors = current_user.interiors.order('created_at DESC').page(params[:page])
       flash.now[:danger] = 'Interiorの投稿に失敗しました。'
-      render :show
+      render 'users/show'
     end
   end
 

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new, :create, :edit, :destroy, :update]do
     member do
       get :scraps
+      get :confirm
     end
   end
   

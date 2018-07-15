@@ -1,9 +1,10 @@
 <%= form_for(@comment) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
   <%= f.hidden_field :user_id %>
   <%= f.hidden_field :interior_id %>
   <div class="panel text-center">
     <div class="form-group">
-      <span>コメントをどうぞ！</span>
+      <span>コメントをどうぞ！(必須)</span>
       <%= f.text_area :body, class: 'form-control', rows: 3 %>
     </div>
     <%= f.submit '投稿する', class: 'btn btn-primary btn-block' %>
