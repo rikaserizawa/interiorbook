@@ -1,35 +1,70 @@
 
 <div class="row">
-  <div class="col-md-offset-3 col-md-6 col-sm-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">会員登録</div>
-      <div class="panel-body">
-        <%= form_for(@user) do |f| %>
-        <%= render 'layouts/error_messages', model: f.object %>
-          <div class="form-group">
-            <%= f.label :name, 'お名前' %>
-            <%= f.text_field :name, class: 'form-control' %>
-          </div>
+  <div class="main_content">
+    <div class="col-md-offset-2 col-md-8 col-sm-12">
+      <div class="col-md-4 col-sm-12">
+        <div class="text-center">
+  	  	  <img src="/images/entry_image01.png">
+  		  </div>
+	  	</div>
+      <div class="col-md-8 col-sm-12">
+        <div class="text-center">
+	    	  <h4 class="media-heading">こだわりの部屋を記録しよう</h4>
+  	    	  <p>あなたのこだわりの部屋を撮影しよう！</p>
+            <p>「コメント」機能を使って、<br>同じ趣味の人と交流もできます。</p>
+            <p>建築関係の方も、ぜひ<br>素敵な写真を投稿してください！</p>
+	      </div>
+      </div>
+    </div>
+  </div>
+	<div class="main_content">
+	  <div class="col-md-offset-2 col-md-8 col-sm-12">
+  	  <div class="col-md-4 col-sm-12">
+		    <div class="text-center">
+  		    <img src="/images/entry_image02.png">
+  		  </div>
+      </div>
+  	  <div class="col-md-8 col-sm-12">
+	      <div class="text-center">
+  	  	  <h4 class="media-heading">見てたのしい！集めてたのしい！</h4>
+	  	      <p>検索機能でお気に入りの写真を見つけたら<br>「Scraps」して、自分好みのインテリア写真集を<br>完成させましょう。</p>
+	      </div>
+	    </div>
+    </div>
+	</div>
+  
+  <div class="newuser">
+    <div class="col-md-offset-3 col-md-6 col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">新規登録</div>
+        <div class="panel-body">
+          <%= form_for(@user) do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
+            <div class="form-group">
+              <%= f.label :name, 'お名前' %>
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
 
-          <div class="form-group">
-            <%= f.label :email, 'メールアドレス' %>
-            <%= f.email_field :email, class: 'form-control' %>
-          </div>
+            <div class="form-group">
+              <%= f.label :email, 'メールアドレス' %>
+              <%= f.email_field :email, class: 'form-control' %>
+            </div>
 
-          <div class="form-group">
-            <%= f.label :password, 'パスワード （英数字6文字以上で登録してください）' %>
-            <%= f.password_field :password, class: 'form-control' %>
-          </div>
+            <div class="form-group">
+              <%= f.label :password, 'パスワード （英数字6文字以上で登録してください）' %>
+              <%= f.password_field :password, class: 'form-control' %>
+            </div>
 
-          <div class="form-group">
-            <%= f.label :password_confirmation, 'パスワード（確認）' %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
-          </div>
-
-          <div class="text-right">
-            <%= f.submit '登録する', class: 'btn btn-success' %>
-          </div>
-        <% end %>
+            <div class="form-group">
+              <%= f.label :password_confirmation, 'パスワード（確認）' %>
+              <%= f.password_field :password_confirmation, class: 'form-control' %>
+            </div>
+  
+            <div class="text-right">
+              <%= f.submit '登録する', class: 'btn btn-success' %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

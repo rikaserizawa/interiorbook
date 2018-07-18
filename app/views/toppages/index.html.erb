@@ -17,37 +17,54 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6 col-sm-6 col-xs-12">
-    <h1 class="text-center">テイストで検索する</h1>
-    <div class="media text-center">
-      <%= link_to 'ナチュラル', {:controller => "interiors", :action => "index" , :taste=> "natural"} %><br>
-      <%= link_to 'シャビーシック', {:controller => "interiors", :action => "index" , :taste=> "shabbychic"} %><br>
-      <%= link_to 'インダストリアル', {:controller => "interiors", :action => "index" , :taste=> "industrial"} %><br>
-      <%= link_to '北欧風', {:controller => "interiors", :action => "index" , :taste=> "nordic"} %><br>
-      <%= link_to 'アメリカン', {:controller => "interiors", :action => "index" , :taste=> "american"} %><br>
-      <%= link_to 'モダン', {:controller => "interiors", :action => "index" , :taste=> "modern"} %><br>
-      <%= link_to 'その他', {:controller => "interiors", :action => "index" , :taste=> "other"} %>
-    </div>
-  </div>
-  <div class="col-md-6 col-sm-6 col-xs-12">
-    <h1 class="text-center">場所で検索する</h1>
-    <div class="media text-center">
-      <%= link_to 'リビング', {:controller => "interiors", :action => "index" , :room=> "living"} %><br>
-      <%= link_to 'キッチン', {:controller => "interiors", :action => "index" , :room=> "kitchen"} %><br>
-      <%= link_to 'サニタリー', {:controller => "interiors", :action => "index" , :room=> "sanitary"} %><br>
-      <%= link_to '寝室', {:controller => "interiors", :action => "index" , :room=> "bedroom"} %><br>
-      <%= link_to '子供部屋', {:controller => "interiors", :action => "index" , :room=> "childrenroom"} %><br>
-      <%= link_to '玄関', {:controller => "interiors", :action => "index" , :room=> "entrance"} %><br>
-      <%= link_to 'その他', {:controller => "interiors", :action => "index" , :room=> "another"} %>
-    </div>
-  </div>
-  <div class="col-md-12 col-xs-12">
-    <h2 class="text-center">ランキングで検索する</h2>
-      <div class="media text-center">
-        <%= link_to '一覧を表示する', rankings_scrap_path %>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="text-center">
+      <h4>テイストで検索する</h4>
+      <div class="dropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          テイストを選んでください<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'ナチュラル', {:controller => "interiors", :action => "index" , :taste=> "natural"} %></li>
+          <li><%= link_to 'シャビーシック', {:controller => "interiors", :action => "index" , :taste=> "shabbychic"} %></li>
+          <li><%= link_to 'インダストリアル', {:controller => "interiors", :action => "index" , :taste=> "industrial"} %></li>
+          <li><%= link_to '北欧風', {:controller => "interiors", :action => "index" , :taste=> "nordic"} %></li>
+          <li><%= link_to 'アメリカン', {:controller => "interiors", :action => "index" , :taste=> "american"} %></li>
+          <li><%= link_to 'モダン', {:controller => "interiors", :action => "index" , :taste=> "modern"} %></li>
+          <li><%= link_to 'その他', {:controller => "interiors", :action => "index" , :taste=> "other"} %></li>
+        </ul>
       </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="text-center">
+      <h4>場所で検索する</h4>
+      <div class="dropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          場合を選んでください<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'リビング', {:controller => "interiors", :action => "index" , :room=> "living"} %></li>
+          <li><%= link_to 'キッチン', {:controller => "interiors", :action => "index" , :room=> "kitchen"} %></li>
+          <li><%= link_to 'サニタリー', {:controller => "interiors", :action => "index" , :room=> "sanitary"} %></li>
+          <li><%= link_to '寝室', {:controller => "interiors", :action => "index" , :room=> "bedroom"} %></li>
+          <li><%= link_to '子供部屋', {:controller => "interiors", :action => "index" , :room=> "childrenroom"} %></li>
+          <li><%= link_to '玄関', {:controller => "interiors", :action => "index" , :room=> "entrance"} %></li>
+          <li><%= link_to 'その他', {:controller => "interiors", :action => "index" , :room=> "another"} %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="text-center">
+      <h4>ランキングで検索する</h4>
+        <div class="btn btn-default">
+          <%= link_to '一覧を表示する', rankings_scrap_path %>
+        </div>
+    </div>
   </div>
 </div>
-
-
-
+<div class="index_all">
+  <%= render 'interiors/interiors_all', interiors: @interiors %>
+</div>

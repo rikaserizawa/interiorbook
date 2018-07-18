@@ -1,20 +1,28 @@
 <div class="topline"></div>
   
   <% if logged_in? %>
-  <div class="cover">
-    <div class="text-center"><div class="logo_b"><%= link_to(image_tag("/images/logo_b.png") , root_url) %></div></div>
+  <div class="cover_in">
+    <div class="text-center">
+      <div class="logo_b_in">
+        <%= link_to(image_tag("/images/logo_b.png") , root_url) %>
+      </div>
+    </div>
   </div>
   <% else %>
-  <div class="cover">
+  <div class="cover_out">
     <div class="col-md-4 col-sm-6 col-xs-12">
-      <div class="text-center"><%= link_to(image_tag("/images/logo_b.png") , root_url) %></div>
+      <div class="text-center">
+        <div class="logo_b_out">
+          <%= link_to(image_tag("/images/logo_b.png") , root_url) %>
+        </div>
+      </div>
     </div>
     <div class="col-md-8 col-sm-6 col-xs-12">
       <div class="cover-inner">
         <div class="cover-contents">
           <div class="text-center">
-            <h3>メンバー登録をすると、写真の投稿・詳細閲覧ができます。</h3>
-            <%= link_to 'InteriorBookをはじめる', signup_path, class: 'btn btn-danger btn-lg' %>
+            <h3>会員登録をすると、写真の投稿・詳細閲覧ができます。</h3>
+            <%= link_to 'InteriorBookとは？', signup_path, class: 'btn btn-danger btn-lg' %>
           </div>
         </div>
       </div>

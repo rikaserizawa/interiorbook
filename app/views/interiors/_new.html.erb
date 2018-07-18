@@ -11,7 +11,6 @@
     </div>
     <div class="form-group">
       <span>インテリアテイスト</span>
-        <%#= f.select :taste, Interior.tastes_i18n.keys.map {|k| [Interior.tastes_i18n[k], k]} %>
         <%= f.select :taste, {"ナチュラル"=>"natural", "シャビーシック"=>"shabbychic", "インダストリアル"=>"industrial", "北欧風"=>"nordic","アメリカン"=>"american", "モダン"=>"modern", "その他"=>"other"}, class:'form-control' %>
     </div>
     <div class="form-group">
