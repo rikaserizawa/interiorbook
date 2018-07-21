@@ -14,6 +14,9 @@ Rails.application.routes.draw do
       get :scraps
       get :confirm
     end
+    collection do
+      get :help
+    end
   end
   
   resources :interiors, only: [:show, :create, :edit, :destroy, :update, :index, :search] do

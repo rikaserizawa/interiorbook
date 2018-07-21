@@ -61,6 +61,9 @@ class UsersController < ApplicationController
   def confirm
     @user = User.find(params[:id])
   end
+  
+  def help
+  end  
 
   private
 

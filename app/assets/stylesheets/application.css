@@ -129,3 +129,9 @@ color: #fff;
   border-top-color: #a6937c;
   padding-top: 2%;
 }
+.help{
+  border-bottom-style: dotted;
+  border-bottom-color: #a6937c;
+  padding-top: 4%;
+  font-weight: bold;
+}
